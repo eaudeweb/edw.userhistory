@@ -3,6 +3,8 @@ Changelog
 
 1.7-dev - (unreleased)
 ----------------------
+* Bug fix: Fix REMOTE_ADDR getter from request.environ
+  [avoinea]
 
 1.6 - (2015-01-09)
 ------------------
