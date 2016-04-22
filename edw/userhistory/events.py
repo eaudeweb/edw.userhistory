@@ -1,4 +1,5 @@
 from datetime import datetime
+from Products.CMFCore.utils import getToolByName
 
 from zope.annotation.interfaces import IAnnotations
 from persistent.list import PersistentList
@@ -20,9 +21,14 @@ def userLoggedIn(user, event):
     userip = get_ip(user.REQUEST)
     logintime = datetime.now()
 
-    member = user.portal_membership.getMemberById(user.getId())
-    if member is None:
+    mtool = getToolByName(user, 'portal_membership')
+    if not mtool:
         return
+
+    member = mtool.getMemberById(user.getId())
+    if not member:
+        return
+
     anno = IAnnotations(member)
     data = anno.setdefault('login_history', PersistentList())
     data.append({'date': logintime, 'ip': userip})

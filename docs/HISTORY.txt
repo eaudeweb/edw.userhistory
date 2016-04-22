@@ -5,6 +5,8 @@ Changelog
 ----------------------
 * Bug fix: Fix REMOTE_ADDR getter from request.environ
   [avoinea]
+* Bug fix: Safely get portal_membership tool
+  [avoinea]
 
 1.6 - (2015-01-09)
 ------------------
