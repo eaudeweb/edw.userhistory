@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.9.dev0 - (unreleased)
+-----------------------
+
 1.8 - (2016-06-23)
 ------------------
 * Bug fix: Use getSite to get portal_membership
