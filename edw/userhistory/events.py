@@ -1,4 +1,5 @@
 from datetime import datetime
+from zope.site.hooks import getSite
 from Products.CMFCore.utils import getToolByName
 
 from zope.annotation.interfaces import IAnnotations
@@ -21,7 +22,7 @@ def userLoggedIn(user, event):
     userip = get_ip(user.REQUEST)
     logintime = datetime.now()
 
-    mtool = getToolByName(user, 'portal_membership')
+    mtool = getToolByName(getSite(), 'portal_membership')
     if not mtool:
         return
 
